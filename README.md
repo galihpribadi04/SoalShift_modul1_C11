@@ -220,49 +220,27 @@ e. dan buatkan juga bash script untuk dekripsinya.
        
     Penjelasan :
     
-    #!/bin/bash 
-    hour=$(date +"%H")
-    if [[ ${hour:0:1} -eq 0 ]]
-    then
-    hour=${hour:1:1}
-    fi
-    
-    #echo $hour
-    lowcase=abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz
-    syslog=$(</var/log/syslog)
-    #echo "$syslog"
-    syslog=$(echo "$syslog" | tr "${lowcase:0:26}" "${lowcase:${hour}:26}")
-    #echo "$syslog"
-    upcase=ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ
-    syslog=$(echo "$syslog" | tr "${upcase:0:26}" "${upcase:${hour}:26}")
-    #echo "$syslog"
-    thishour=$(date +"%H:%M %d-%m-%Y")
-    #echo "$thishour"
-    #echo "$syslog" > /home/zahrul/praktikum1/sislog
-    echo "$syslog" > "$thishour"
-    
     #!/bin/bash
     hour=$(date +"%H")
     if [[ ${hour:0:1} -eq 0 ]]
     then
     hour=${hour:1:1}
     fi
-    
     #echo $hour
     lowcase=abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz
-    syslog=$(</var/log/syslog) #mengambil isi dari varlog/syslog dimasukkan ke syslog
+    syslog=$(</var/log/syslog)
     #echo "$syslog"
-    syslog=$(echo "$syslog" | tr "${lowcase:0:26}" "${lowcase:${hour}:26}") #artinya di 	print, menyeleksi yang sesuai lowcase dan ditambahkan nilai alfabet sesuai jamnya untuk 	lowcase
+    syslog=$(echo "$syslog" | tr "${lowcase:0:26}" "${lowcase:${hour}:26}")
     #echo "$syslog"
+    
     upcase=ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ
     syslog=$(echo "$syslog" | tr "${upcase:0:26}" "${upcase:${hour}:26}")
-    #di print, menyeleksi yang sesuai upcase dan ditambahkan nilai alfabet sesuai jamnya untuk 	upcase
     #echo "$syslog"
-    thishour=$(date +"%H:%M %d-%m-%Y") #penamaan nama file
-    #echo "$thishour" 
-    #echo "$syslog" > /home/awin/praktikum1/sislog
-    echo "$syslog" > "$thishour" →di print isi dari syslog dipindahkan dalam  file thisour
-   
+    
+    thishour=$(date +"%H:%M %d-%m-%Y")
+    #echo "$thishour"
+    #echo "$syslog" > /home/isnaini/praktikum1/sislog
+    echo "$syslog" > "$thishour"   
    
 ## soal 5   
 Buatlah sebuah script bash untuk menyimpan record dalam syslog yang memenuhi kriteria berikut:
