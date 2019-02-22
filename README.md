@@ -8,9 +8,9 @@
    Penjelasan :
    1) langkah pertama yang dilakukan adalah :
       --> #!/bin/bash
-   1) Langkah pertama yang dilakukan adalah dengan me-unzip file nature.zip yang berada di home/isnaini/praktikum1/nature.zip  kemudian file tersebut dipindahkan dengan tujuan direktori ke home/isnaini/praktikum1 
+   2) Langkah kedua yang dilakukan adalah dengan me-unzip file nature.zip yang berada di home/isnaini/praktikum1/nature.zip  kemudian file tersebut dipindahkan dengan tujuan direktori ke home/isnaini/praktikum1 
       -->  unzip nature.zip
-   2) Langkah kedua adalah membuat direktori “hasil” dengan syntax sebagai berikut:
+   3) Langkah ketiga adalah membuat direktori “hasil” dengan syntax sebagai berikut:
       -->  mkdir /home/isnaini/praktikum1/nature/hasil
    3) penjelasan untuk setiap source code:
       --> iter=0 
