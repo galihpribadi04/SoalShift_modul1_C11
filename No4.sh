@@ -1,28 +1,25 @@
 #!/bin/bash
 
-hour=$(date +"%H")
+A=ABCDEFGHIJKLMNOPQRSTUVWXYZ
+B=abcdefghijklmnopqrstuvwxyz
 
-if [[ ${hour:0:1} -eq 0 ]]
-then
-    hour=${hour:1:1}
-fi
+A2=($(echo ${A[@]})$(echo ${A[@]}))
+B2=($(echo ${B[@]})$(echo ${B[@]}))
+hour=`date +"%H"`
+rot=$hour
 
-#echo $hour
+simpan=($(echo ${A[@]})$(echo ${B[@]}))
+newA=$(echo $A | tr "${A:0:26}" "${A2:${rot}:26}")
+newB=$(echo $B | tr "${B:0:26}" "${B2:${rot}:26}")
+simpan2=($(echo ${newA[@]})$(echo ${newB[@]}))
 
-lowcase=abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz
-syslog=$(</var/log/syslog)
-#echo "$syslog"
-syslog=$(echo "$syslog" | tr "${lowcase:0:26}" "${lowcase:${hour}:26}")
-#echo "$syslog"
+hasil=`date +"%H:%M %d-%m-%Y"`
 
-upcase=ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ
-syslog=$(echo "$syslog" | tr "${upcase:0:26}" "${upcase:${hour}:26}")
-#echo "$syslog"
+< /var/log/syslog > "$hasil" tr "$simpan" "$simpan2"
 
-thishour=$(date +"%H:%M %d-%m-%Y")
-#echo "$thishour"
-#echo "$syslog" > /home/isnaini/praktikum1/sislog
-echo "$syslog" > "$thishour"
+
+
+
 
 
 
