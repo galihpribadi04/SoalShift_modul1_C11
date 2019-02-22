@@ -2,8 +2,8 @@
                                                 SISTEM OPERASI
 
 
-
-1. Anda diminta tolong oleh teman anda untuk mengembalikan filenya yang telah dienkripsi oleh seseorang menggunakan bash script, file yang dimaksud adalah nature.zip. Karena terlalu mudah kalian memberikan syarat akan membuka seluruh file tersebut jika pukul 14:14 pada tanggal 14 Februari atau hari tersebut adalah hari jumat pada bulan Februari.
+## soal 1
+Anda diminta tolong oleh teman anda untuk mengembalikan filenya yang telah dienkripsi oleh seseorang menggunakan bash script, file yang dimaksud adalah nature.zip. Karena terlalu mudah kalian memberikan syarat akan membuka seluruh file tersebut jika pukul 14:14 pada tanggal 14 Februari atau hari tersebut adalah hari jumat pada bulan Februari.
    Hint: Base64, Hexdump.
    Penjelasan :
    1) langkah pertama yang dilakukan adalah :
@@ -57,8 +57,9 @@
       
           ```14 14 14 2 *```` 
           ```14 14 14 2 5```
-     
-2. Anda merupakan pegawai magang pada sebuah perusahaan retail, dan anda diminta untuk memberikan laporan berdasarkan file WA_Sales_Products_2012-14.csv.
+
+## soal 2
+Anda merupakan pegawai magang pada sebuah perusahaan retail, dan anda diminta untuk memberikan laporan berdasarkan file WA_Sales_Products_2012-14.csv.
 Laporan yang diminta berupa:
 
 
@@ -168,9 +169,8 @@ c. Tentukan tiga product yang memberikan penjualan(quantity) terbanyak berdasark
        awk -F ',' '{if($7=='2012' && $1=="United States" && $4=="Personal Accessories") p[$6]+=$10} END {for(hasil in c) {print p[hasil], hasil}}' WA_Sales_Products_2012-14.csv | sort -nr | awk 'NR<=3 {print $2$,$3,$4}’
        --> program yang berfungsi dengan nomor 2b dan dengan suatu kondisi bahwa program akan mengecek apakah data sesuai dengan product line"Personal Accesories" dan akan menampilkan data ke-2, ke-3, dan ke-4.
 
-
-
- 3. Buatlah sebuah script bash yang dapat menghasilkan password secara acak sebanyak 12 karakter yang terdapat huruf besar, huruf kecil, dan angka. Password acak tersebut disimpan pada file berekstensi .txt dengan ketentuan pemberian nama sebagai berikut:
+## soal 3
+Buatlah sebuah script bash yang dapat menghasilkan password secara acak sebanyak 12 karakter yang terdapat huruf besar, huruf kecil, dan angka. Password acak tersebut disimpan pada file berekstensi .txt dengan ketentuan pemberian nama sebagai berikut:
  
  
     a. Jika tidak ditemukan file password1.txt maka password acak tersebut disimpan pada file bernama password1.txt  
@@ -206,8 +206,8 @@ Penjelasan :
        ``done`` 
          artinya mengakhiri perintah do
 
-
-4. Lakukan backup file syslog setiap jam dengan format nama file “jam:menit tanggal-bulan-tahun”. Isi dari file backup terenkripsi dengan konversi huruf (string manipulation) yang disesuaikan dengan jam dilakukannya backup misalkan sebagai berikut:
+## soal 4
+Lakukan backup file syslog setiap jam dengan format nama file “jam:menit tanggal-bulan-tahun”. Isi dari file backup terenkripsi dengan konversi huruf (string manipulation) yang disesuaikan dengan jam dilakukannya backup misalkan sebagai berikut:
        a. Huruf b adalah alfabet kedua, sedangkan saat ini waktu menunjukkan pukul 12, sehingga huruf b diganti dengan huruf alfabet yang memiliki urutan ke 12+2 = 14.
 
 b. Hasilnya huruf b menjadi huruf n karena huruf n adalah huruf ke empat belas, dan seterusnya.
@@ -263,7 +263,9 @@ e. dan buatkan juga bash script untuk dekripsinya.
     #echo "$syslog" > /home/awin/praktikum1/sislog
     echo "$syslog" > "$thishour" →di print isi dari syslog dipindahkan dalam  file thisour
    
-5. Buatlah sebuah script bash untuk menyimpan record dalam syslog yang memenuhi kriteria berikut:
+   
+## soal 5   
+Buatlah sebuah script bash untuk menyimpan record dalam syslog yang memenuhi kriteria berikut:
 
    a. Tidak mengandung string “sudo”, tetapi mengandung string “cron”, serta buatlah pencarian stringnya tidak bersifat case sensitive, sehingga huruf kapital atau tidak, tidak menjadi masalah.
    
@@ -275,7 +277,11 @@ e. dan buatkan juga bash script untuk dekripsinya.
    d. Jalankan script tadi setiap 6 menit dari menit ke 2 hingga 30, contoh
       13:02, 13:08, 13:14, dst. 
   JAWAB
+  
+  
    •	Crontabnya
+   
+   
       a)	Untuk menghilangkan sudo dan memunculkan string cron
           ``$0 !/sudo/``
          `` $0 /cron/ || /CRON/``
