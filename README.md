@@ -264,10 +264,14 @@ e. dan buatkan juga bash script untuk dekripsinya.
     echo "$syslog" > "$thishour" →di print isi dari syslog dipindahkan dalam  file thisour
    
 5. Buatlah sebuah script bash untuk menyimpan record dalam syslog yang memenuhi kriteria berikut:
+
    a. Tidak mengandung string “sudo”, tetapi mengandung string “cron”, serta buatlah pencarian stringnya tidak bersifat case sensitive, sehingga huruf kapital atau tidak, tidak menjadi masalah.
+   
    b. Jumlah field (number of field) pada baris tersebut berjumlah kurangdari 13.
+   
    c. Masukkan record tadi ke dalam file logs yang berada pada direktori
       /home/[user]/modul1.
+      
    d. Jalankan script tadi setiap 6 menit dari menit ke 2 hingga 30, contoh
       13:02, 13:08, 13:14, dst. 
   JAWAB
@@ -275,9 +279,15 @@ e. dan buatkan juga bash script untuk dekripsinya.
       a)	Untuk menghilangkan sudo dan memunculkan string cron
           ``$0 !/sudo/``
          `` $0 /cron/ || /CRON/``
-      b)	Memasukkan record kedalam file direkstori
+     
+     
+     b)	Memasukkan record kedalam file direkstori
          `` /home/galihpribadi04/modul1/syslogno5.log``
+      
+      
       c)	Membuat baris field < 13 awk ‘NF < 13’
+      
+      
       d)	Pengaturan crontab setiap 6 menit pada meit 2 sampai 30
          `` 2-30 * * * * /bin/bash/ /home/galihpribadi04/soal5.sh``
           Untuk code lengkapnya bisa dilihat sebagai berikut :
