@@ -220,27 +220,39 @@ e. dan buatkan juga bash script untuk dekripsinya.
        
     Penjelasan :
     
+    --4-- Berikut ini ` adalah syntax enkrip--
     #!/bin/bash
-    hour=$(date +"%H")
-    if [[ ${hour:0:1} -eq 0 ]]
-    then
-    hour=${hour:1:1}
-    fi
-    #echo $hour
-    lowcase=abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz
-    syslog=$(</var/log/syslog)
-    #echo "$syslog"
-    syslog=$(echo "$syslog" | tr "${lowcase:0:26}" "${lowcase:${hour}:26}")
-    #echo "$syslog"
-    
-    upcase=ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ
-    syslog=$(echo "$syslog" | tr "${upcase:0:26}" "${upcase:${hour}:26}")
-    #echo "$syslog"
-    
-    thishour=$(date +"%H:%M %d-%m-%Y")
-    #echo "$thishour"
-    #echo "$syslog" > /home/isnaini/praktikum1/sislog
-    echo "$syslog" > "$thishour"   
+
+``A=ABCDEFGHIJKLMNOPQRSTUVWXYZ
+  B=abcdefghijklmnopqrstuvwxyz
+  A2=($(echo ${A[@]})$(echo ${A[@]}))
+  B2=($(echo ${B[@]})$(echo ${B[@]}))
+  hour=`date +"%H"`
+  rot=$hour
+  simpan=($(echo ${A[@]})$(echo ${B[@]}))
+  newA=$(echo $A | tr "${A:0:26}" "${A2:${rot}:26}")
+  newB=$(echo $B | tr "${B:0:26}" "${B2:${rot}:26}")
+  simpan2=($(echo ${newA[@]})$(echo ${newB[@]}))
+  hasil=`date +"%H:%M %d-%m-%Y"`
+  < /var/log/syslog > "$hasil" tr "$simpan" "$simpan2"``
+  
+  
+  ``--4b--Berikut ini adalah syntax Dekript--
+  #!/bin/bash
+  read bisa
+  A=ABCDEFGHIJKLMNOPQRSTUVWXYZ
+  B=abcdefghijklmnopqrstuvwxyz
+  A2=($(echo ${A[@]})$(echo ${A[@]}))
+  B2=($(echo ${B[@]})$(echo ${B[@]}))
+  hour=${bisa:0:2}
+  rot=$hour
+  simpan=($(echo ${A[@]})$(echo ${B[@]}))
+  newA=$(echo $A | tr "${A:0:26}" "${A2:${rot}:26}")
+  newB=$(echo $B | tr "${B:0:26}" "${B2:${rot}:26}")
+  simpan2=($(echo ${newA[@]})$(echo ${newB[@]}))
+  < "$bisa" > "$bisa dec" tr "$simpan2" "$simpan"
+  
+  
    
 ## soal 5   
 Buatlah sebuah script bash untuk menyimpan record dalam syslog yang memenuhi kriteria berikut:
