@@ -7,13 +7,21 @@
    Hint: Base64, Hexdump.
    Penjelasan :
    1) langkah pertama yang dilakukan adalah :
-      --> #!/bin/bash
+   
+   
+      --> ```#!/bin/bash```
    2) Langkah kedua yang dilakukan adalah dengan me-unzip file nature.zip yang berada di home/isnaini/praktikum1/nature.zip  kemudian file tersebut dipindahkan dengan tujuan direktori ke home/isnaini/praktikum1 
-      -->  unzip nature.zip
+   
+   
+      -->  ```unzip nature.zip```
    3) Langkah ketiga adalah membuat direktori “hasil” dengan syntax sebagai berikut:
-      -->  mkdir /home/isnaini/praktikum1/nature/hasil
+   
+   
+      -->  ```mkdir /home/isnaini/praktikum1/nature/hasil```
+      
+      
    3) penjelasan untuk setiap source code:
-      --> iter=0 
+      --> ```iter=0``` 
           artinya adalah menyimpan nama variabel yang benama "iter" yang dimulai dari 0
       --> for gambarku in /home/isnaini/praktikum1/nature/*.jpg  
           artinya adalah dengan melakukan looping untuk mendecript
@@ -31,19 +39,10 @@
       --> Agar skrip tersebut dijalankan pada pukul 14:14 pada tanggal 14 Februari atau hari tersebut adalah hari jumat pada bulan Februari, cronjob yang sesuai adalah sebagai berikut:
           14 14 14 2 * 
           14 14 14 2 5
-   
-   
- 2. Anda merupakan pegawai magang pada sebuah perusahaan retail, dan anda diminta untuk memberikan laporan berdasarkan file WA_Sales_Products_2012-14.csv.
-    Laporan yang diminta berupa:
-    a. Tentukan negara dengan penjualan(quantity) terbanyak pada tahun 2012.
-    b. Tentukan tiga product line yang memberikan penjualan(quantity) terbanyak pada soal poin a.
-    c. Tentukan tiga product yang memberikan penjualan(quantity) terbanyak berdasarkan tiga product line yang didapatkan pada soal poin 
-    Penyelesaian :
-    
+     
 2. Anda merupakan pegawai magang pada sebuah perusahaan retail, dan anda diminta
 untuk memberikan laporan berdasarkan file WA_Sales_Products_2012-14.csv.
 Laporan yang diminta berupa:
-
 a. Tentukan negara dengan penjualan(quantity) terbanyak pada tahun
 2012.
 b. Tentukan tiga product line yang memberikan penjualan(quantity)
