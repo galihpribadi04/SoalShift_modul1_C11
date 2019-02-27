@@ -1,17 +1,17 @@
 #!/bin/bash
 
-A=ABCDEFGHIJKLMNOPQRSTUVWXYZ
-B=abcdefghijklmnopqrstuvwxyz
+x=ABCDEFGHIJKLMNOPQRSTUVWXYZ
+z=abcdefghijklmnopqrstuvwxyz
 
-A2=($(echo ${A[@]})$(echo ${A[@]}))
-B2=($(echo ${B[@]})$(echo ${B[@]}))
-hour=`date +"%H"`
-rot=$hour
+x2=($(echo ${x[@]})$(echo ${x[@]}))
+z2=($(echo ${z[@]})$(echo ${z[@]}))
+simpan=($(echo ${x[@]})$(echo ${z[@]}))
 
-simpan=($(echo ${A[@]})$(echo ${B[@]}))
-newA=$(echo $A | tr "${A:0:26}" "${A2:${rot}:26}")
-newB=$(echo $B | tr "${B:0:26}" "${B2:${rot}:26}")
-simpan2=($(echo ${newA[@]})$(echo ${newB[@]}))
+rot=`date +"%H"`
+
+newx=$(echo $x | tr "${x:0:26}" "${x2:${rot}:26}")
+newz=$(echo $z | tr "${z:0:26}" "${z2:${rot}:26}")
+simpan2=($(echo ${newx[@]})$(echo ${newz[@]}))
 
 hasil=`date +"%H:%M %d-%m-%Y"`
 
