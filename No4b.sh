@@ -2,18 +2,18 @@
 
 read bisa
 
-A=ABCDEFGHIJKLMNOPQRSTUVWXYZ
-B=abcdefghijklmnopqrstuvwxyz
+x=ABCDEFGHIJKLMNOPQRSTUVWXYZ
+z=abcdefghijklmnopqrstuvwxyz
 
-A2=($(echo ${A[@]})$(echo ${A[@]}))
-B2=($(echo ${B[@]})$(echo ${B[@]}))
+x2=($(echo ${x[@]})$(echo ${x[@]}))
+z2=($(echo ${z[@]})$(echo ${z[@]}))
 hour=${bisa:0:2}
 rot=$hour
 
-simpan=($(echo ${A[@]})$(echo ${B[@]}))
-newA=$(echo $A | tr "${A:0:26}" "${A2:${rot}:26}")
-newB=$(echo $B | tr "${B:0:26}" "${B2:${rot}:26}")
-simpan2=($(echo ${newA[@]})$(echo ${newB[@]}))
+simpan=($(echo ${x[@]})$(echo ${z[@]}))
+newx=$(echo $x | tr "${x:0:26}" "${x2:${rot}:26}")
+newz=$(echo $z | tr "${z:0:26}" "${z2:${rot}:26}")
+simpan2=($(echo ${newx[@]})$(echo ${newz[@]}))
 
 < "$bisa" > "$bisa dec" tr "$simpan2" "$simpan"
 
